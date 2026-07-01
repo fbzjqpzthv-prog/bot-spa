@@ -1,9 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useEffect } from 'react'
-import { photos } from '../data/photos'
 import PhotoPlaceholder from './PhotoPlaceholder'
 
-export default function Lightbox({ photo, onClose, onNavigate }) {
+export default function Lightbox({ photos, photo, onClose, onNavigate }) {
   const go = useCallback(
     (dir) => {
       const idx = photos.findIndex((p) => p.id === photo?.id)
@@ -11,7 +10,7 @@ export default function Lightbox({ photo, onClose, onNavigate }) {
       const next = (idx + dir + photos.length) % photos.length
       onNavigate(photos[next])
     },
-    [photo, onNavigate],
+    [photo, photos, onNavigate],
   )
 
   useEffect(() => {

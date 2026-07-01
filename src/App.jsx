@@ -6,6 +6,7 @@ import Timeline from './components/Timeline'
 import Guestbook from './components/Guestbook'
 import Footer from './components/Footer'
 import Lightbox from './components/Lightbox'
+import { useAlbumPhotos } from './hooks/useAlbumPhotos'
 
 const links = [
   { href: '#galerie', label: 'Galerie' },
@@ -16,6 +17,7 @@ const links = [
 export default function App() {
   const [selected, setSelected] = useState(null)
   const galleryRef = useRef(null)
+  const { photos, addFiles, removePhoto, hasUploads } = useAlbumPhotos()
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 })
 
@@ -44,14 +46,25 @@ export default function App() {
 
       <main id="top">
         <Hero onExplore={scrollToGallery} />
-        <Gallery onOpen={setSelected} />
+        <Gallery
+          photos={photos}
+          hasUploads={hasUploads}
+          onOpen={setSelected}
+          onAddFiles={addFiles}
+          onDelete={removePhoto}
+        />
         <Timeline />
         <Guestbook />
       </main>
 
       <Footer />
 
-      <Lightbox photo={selected} onClose={() => setSelected(null)} onNavigate={setSelected} />
+      <Lightbox
+        photos={photos}
+        photo={selected}
+        onClose={() => setSelected(null)}
+        onNavigate={setSelected}
+      />
     </div>
   )
 }

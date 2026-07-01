@@ -25,9 +25,25 @@ npm run preview    # prévisualiser le build
 
 ## 🖼️ Ajouter vos vraies photos
 
-Les visuels sont pour l’instant des dégradés de remplacement élégants.
-Pour utiliser vos photos, ouvrez `src/data/photos.js` et ajoutez un champ
-`src` à chaque entrée :
+Deux méthodes, selon votre besoin :
+
+### 1. Directement dans le site (le plus simple) 🚀
+
+Dans la galerie, cliquez sur **« ＋ Ajouter mes photos »** ou **glissez-déposez**
+vos images sur la galerie. Elles apparaissent immédiatement sous le filtre
+**« Mes photos »**, avec une belle animation.
+
+Ces photos sont enregistrées **localement dans le navigateur** (via IndexedDB) :
+elles restent après rafraîchissement, et vous pouvez en supprimer une en
+survolant la vignette (petit **×**). C’est parfait pour composer votre album
+sans toucher au code — mais ces photos vivent uniquement dans *votre*
+navigateur, elles ne sont pas partagées avec les autres visiteurs du site.
+
+### 2. Dans le code (pour un album partagé/déployé) 🌐
+
+Pour que vos photos fassent partie du site publié et soient visibles par tous,
+placez vos images dans `public/photos/` puis ajoutez un champ `src` à chaque
+entrée de `src/data/photos.js` :
 
 ```js
 {
@@ -35,13 +51,13 @@ Pour utiliser vos photos, ouvrez `src/data/photos.js` et ajoutez un champ
   title: 'La cérémonie',
   caption: 'Devant nos proches, nous avons dit oui.',
   category: 'Cérémonie',
-  src: '/photos/ceremonie.jpg', // <-- votre image (placez-la dans /public)
+  src: '/photos/ceremonie.jpg', // <-- votre image (dans public/photos/)
   span: 'wide',
 }
 ```
 
 Le composant `PhotoPlaceholder` affiche automatiquement l’image dès qu’un
-`src` est présent.
+`src` est présent (sinon, il affiche un joli dégradé de remplacement).
 
 ## 🎨 Personnalisation
 
