@@ -20,20 +20,14 @@ export default function Guestbook() {
   }
 
   return (
-    <section className="guestbook" id="livre-d-or">
-      <motion.div
-        className="section-head"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <p className="section-head__eyebrow">Un mot pour les mariés</p>
-        <h2 className="section-head__title">Le livre d’or</h2>
-        <p className="section-head__lead">
+    <section className="book">
+      <header className="albums__head">
+        <p className="view__eyebrow">Un mot pour les mariés</p>
+        <h2 className="view__title">Livre d’or</h2>
+        <p className="view__lead">
           Laissez un souvenir, un vœu ou une anecdote — il rejoindra ceux de nos proches.
         </p>
-      </motion.div>
+      </header>
 
       <form className="guestbook__form" onSubmit={submit}>
         <input
@@ -54,7 +48,7 @@ export default function Guestbook() {
         />
         <motion.button
           type="submit"
-          className="guestbook__submit"
+          className="btn-solid guestbook__submit"
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
         >

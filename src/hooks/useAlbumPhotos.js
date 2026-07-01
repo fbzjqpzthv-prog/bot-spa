@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { photos as defaultPhotos } from '../data/photos'
-import { deleteUpload, loadUploads, saveUploads } from '../utils/photoStore'
+import { deleteUpload, loadUploads, renameFolderRecords, saveUploads } from '../utils/photoStore'
 
 const FOLDERS_KEY = 'wedding-album-folders'
 const SPANS = ['normal', 'tall', 'wide', 'normal', 'tall']
@@ -129,12 +128,34 @@ export function useAlbumPhotos() {
     [uploaded],
   )
 
+  const renameFolder = useCallback(
+    async (oldName, rawNew) => {
+      const newName = (rawNew || '').trim()
+      if (!newName || newName === oldName) return false
+      if (folders.includes(newName)) return false // éviter les doublons
+      await renameFolderRecords(oldName, newName)
+      setUploaded((prev) =>
+        prev.map((p) =>
+          p.folder === oldName ? { ...p, folder: newName, category: newName } : p,
+        ),
+      )
+      setFolders((prev) => {
+        const next = prev.map((f) => (f === oldName ? newName : f))
+        writeFolders(next)
+        return next
+      })
+      return true
+    },
+    [folders],
+  )
+
   return {
-    photos: [...defaultPhotos, ...uploaded],
+    photos: uploaded,
     folders,
     addFiles,
     createFolder,
     removePhoto,
     removeFolder,
+    renameFolder,
   }
 }
