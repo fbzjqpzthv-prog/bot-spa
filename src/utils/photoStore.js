@@ -18,12 +18,13 @@ function openDb() {
   })
 }
 
-export async function saveUploads(files) {
+export async function saveUploads(files, folder) {
   const db = await openDb()
   const records = files.map((file) => ({
     id: `up-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
     blob: file,
     title: file.name.replace(/\.[^.]+$/, ''),
+    folder,
     createdAt: Date.now(),
   }))
   await new Promise((resolve, reject) => {

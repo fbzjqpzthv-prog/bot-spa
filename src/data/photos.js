@@ -1,6 +1,7 @@
 // Données de l'album. Chaque photo est un dégradé/placeholder élégant :
 // remplacez simplement `src` par l'URL (ou l'import) de vos vraies photos.
 // Les proportions `span` contrôlent la mise en page "masonry" de la galerie.
+// Palettes en tons beige & vert sauge, accordées au thème.
 
 export const photos = [
   {
@@ -8,7 +9,7 @@ export const photos = [
     title: 'Les préparatifs',
     caption: 'Les dernières minutes avant le grand oui.',
     category: 'Préparatifs',
-    palette: ['#f3e7e0', '#d8a48f'],
+    palette: ['#f0ecdf', '#b9c7a6'],
     span: 'tall',
   },
   {
@@ -16,7 +17,7 @@ export const photos = [
     title: 'La cérémonie',
     caption: 'Devant nos proches, nous avons dit oui.',
     category: 'Cérémonie',
-    palette: ['#e9e3da', '#b08968'],
+    palette: ['#e7e5d3', '#8ba173'],
     span: 'wide',
   },
   {
@@ -24,7 +25,7 @@ export const photos = [
     title: 'Le premier regard',
     caption: 'Ce moment suspendu, rien que nous deux.',
     category: 'Cérémonie',
-    palette: ['#efe6dd', '#c99e83'],
+    palette: ['#eeead9', '#a3b587'],
     span: 'normal',
   },
   {
@@ -32,7 +33,7 @@ export const photos = [
     title: 'Les alliances',
     caption: 'Un cercle sans fin, comme notre amour.',
     category: 'Cérémonie',
-    palette: ['#f5ece4', '#cbb190'],
+    palette: ['#f2eede', '#c0cbaa'],
     span: 'normal',
   },
   {
@@ -40,7 +41,7 @@ export const photos = [
     title: 'Sous les pétales',
     caption: 'Une pluie de bonheur à la sortie.',
     category: 'Cérémonie',
-    palette: ['#f7e9e0', '#d99e8a'],
+    palette: ['#f4f0e2', '#9db384'],
     span: 'tall',
   },
   {
@@ -48,7 +49,7 @@ export const photos = [
     title: 'Le cocktail',
     caption: 'Rires, bulles et grands sourires.',
     category: 'Réception',
-    palette: ['#eae4d9', '#a68a64'],
+    palette: ['#e8e4d0', '#7f9668'],
     span: 'wide',
   },
   {
@@ -56,7 +57,7 @@ export const photos = [
     title: 'La première danse',
     caption: 'Le monde entier a disparu autour de nous.',
     category: 'Soirée',
-    palette: ['#e4ded6', '#8f7355'],
+    palette: ['#e2e0cd', '#5f7550'],
     span: 'normal',
   },
   {
@@ -64,7 +65,7 @@ export const photos = [
     title: 'Les éclats de rire',
     caption: 'Nos familles réunies, enfin.',
     category: 'Réception',
-    palette: ['#f2e8de', '#cda17f'],
+    palette: ['#efebda', '#aabb8f'],
     span: 'normal',
   },
   {
@@ -72,7 +73,7 @@ export const photos = [
     title: 'La pièce montée',
     caption: 'Aussi sucrée que cette journée.',
     category: 'Réception',
-    palette: ['#f5eee6', '#d6b48c'],
+    palette: ['#f3efe0', '#c4cfae'],
     span: 'normal',
   },
   {
@@ -80,7 +81,7 @@ export const photos = [
     title: 'La piste de danse',
     caption: 'On a dansé jusqu’au bout de la nuit.',
     category: 'Soirée',
-    palette: ['#e6ddd3', '#7c6a52'],
+    palette: ['#e4e2cf', '#6d8459'],
     span: 'tall',
   },
   {
@@ -88,7 +89,7 @@ export const photos = [
     title: 'Le feu d’artifice',
     caption: 'Le ciel s’est illuminé pour nous.',
     category: 'Soirée',
-    palette: ['#dcd4ca', '#6d5c46'],
+    palette: ['#dcdcc6', '#546a47'],
     span: 'wide',
   },
   {
@@ -96,7 +97,7 @@ export const photos = [
     title: 'Le dernier slow',
     caption: 'La fin d’un jour, le début d’une vie.',
     category: 'Soirée',
-    palette: ['#e8e0d6', '#9c8064'],
+    palette: ['#e6e3d1', '#8fa675'],
     span: 'normal',
   },
 ]

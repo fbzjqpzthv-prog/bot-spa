@@ -17,7 +17,7 @@ const links = [
 export default function App() {
   const [selected, setSelected] = useState(null)
   const galleryRef = useRef(null)
-  const { photos, addFiles, removePhoto, hasUploads } = useAlbumPhotos()
+  const { photos, folders, addFiles, createFolder, removePhoto, removeFolder } = useAlbumPhotos()
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 })
 
@@ -48,10 +48,12 @@ export default function App() {
         <Hero onExplore={scrollToGallery} />
         <Gallery
           photos={photos}
-          hasUploads={hasUploads}
+          folders={folders}
           onOpen={setSelected}
           onAddFiles={addFiles}
+          onCreateFolder={createFolder}
           onDelete={removePhoto}
+          onDeleteFolder={removeFolder}
         />
         <Timeline />
         <Guestbook />
